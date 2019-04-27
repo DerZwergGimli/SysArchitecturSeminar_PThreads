@@ -1,8 +1,5 @@
 .vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
 
 Examples/Thread_example/main
 Examples/Sleep_example/main
+Examples/Sample_pThread/main
