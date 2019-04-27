@@ -43,7 +43,4 @@ int main(int argc, char **argsv) {
     }
 
     return EXIT_SUCCESS;
-    
-
-	return 0;
 }
