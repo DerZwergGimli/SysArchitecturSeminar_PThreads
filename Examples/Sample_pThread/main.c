@@ -32,11 +32,15 @@ int main(int argc, char **argsv) {
     /*create threads */
     for (i = 0; i < number_of_threads; ++i){
         thr_data[i].tid = i;
+
         if ((rc = pthread_create(&thr[i], NULL, thread_function, &thr_data[i]))){
             fprintf(stderr, "error: pthread_create, rc: %d\n", rc);
             return EXIT_FAILURE;
         }
+        
     }
+    
+    
     
     for (i = 0; i < number_of_threads; ++i){
         pthread_join(thr[i], NULL);
