@@ -7,10 +7,10 @@
 int count = 0;
 
 // Returned variable to the main routine
-int thread_rt = 0;
+int thread_rt = 1;
 
 // Thread Mutex
-pthread_mutex_t mutex; 
+pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER; 
 
 // Thread info struc
 // Not used yet
@@ -38,8 +38,11 @@ void myThread(void * param){
 
     pthread_mutex_unlock(&mutex);
 
+    int * result  = malloc(sizeof(*result));
+    *result = *(int *) param;
+
     // pass the calue to the main process
-    pthread_exit((int *) param);
+    pthread_exit(result);
 }
 
 int main() {
@@ -77,15 +80,16 @@ int main() {
         pthread_create(tidArray+i, attrArray+i, myThread, &count);
         // NOTE: here, every Thread will run the same routine (function)
     }
-    
+    int * pThread_rt;  // = &thread_rt;
     
     // wait until Thread is done
     for(size_t i = 0; i < MAX_NUM_OF_THREADS; i++)
     {
         pthread_join(&tidArray[i], 
-                &thread_rt);  // param to capture the value passed by 
+                &pThread_rt);  // param to capture the value passed by 
     }
     
-    printf("Count returned: %d \n", thread_rt); // still returning 0 ..
+    printf("Count returned: %d \n", *pThread_rt); // still returning 0 ..
+    //free(pThread_rt);
 	return 0;   
 }
