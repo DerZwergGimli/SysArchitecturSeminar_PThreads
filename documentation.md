@@ -227,7 +227,7 @@ int main(int argc, char **argsv)
     //Here we will Create a name for our Thread
     char buffer[20];
     snprintf(buffer, sizeof(buffer), "%C%i", "Thread-", 1);
-	pthread_setname_np(thread_id,  buffer);
+    pthread_setname_np(thread_id,  buffer);
 
     
     // Wait until thread is done
