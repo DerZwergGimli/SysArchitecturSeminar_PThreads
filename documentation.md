@@ -52,8 +52,8 @@ int main(int argc, char **argsv)
     pthread_attr_t attr;
     pthread_attr_init(&attr);
     
-	pthread_create(&thread_id, &attr, thread_function, NULL);
-	//pthread_create(&tid, NULL, thread_function, &i);
+    pthread_create(&thread_id, &attr, thread_function, NULL);
+    //pthread_create(&tid, NULL, thread_function, &i);
     
     // Wait until thread is done
     pthread_join(thread_id, NULL);
