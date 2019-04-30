@@ -3,7 +3,7 @@ This is a pThread example project
 
 # Try it yourself
 Download the Zip file from [here](https://github.com/DerZwergGimli/SysArchitecturSeminar_PThreads/archive/master.zip)
-or Clone The repository to your Computer
+or clone the repository to your Computer
 ```
  git clone https://github.com/DerZwergGimli/SysArchitecturSeminar_PThreads.git
 ```
