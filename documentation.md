@@ -37,10 +37,10 @@ This will launch a new thread to do some work on another CPU.
 ```c
 #include <pthread.h>
 
-void* thread_function(void arg)
+void* thread_function(void* arg)
 {
     //Do some thread work here...
-    return 0;
+    pthread_extit(0);
 }
 
 int main(int argc, char **argsv)
@@ -70,10 +70,10 @@ int main(int argc, char **argsv)
 ```c
 #include <pthread.h>
 
-void* thread_function(void arg)
+void* thread_function(void* arg)
 {
     //Do some thread work here...
-    return 0;
+    pthread_extit(0);
 }
 
 int main(int argc, char **argsv)
@@ -121,10 +121,10 @@ int pthread_kill(pthread_t thread, int sig);
 #include <pthread.h>
 #include <signal.h>
 
-void* thread_function(void arg)
+void* thread_function(void* arg)
 {
     //Do some thread work here...
-    return 0;
+    pthread_extit(0);
 }
 
 int main(int argc, char **argsv)
@@ -151,16 +151,55 @@ int main(int argc, char **argsv)
 
 You may want to send Data from your main()-loop to a thread and vice versa.
 
+To accomplish communication a nice way to do it are pointers to a `struct`
 
+```c
+#include <pthread.h>
 
+struct myStructTemplate
+{
+    int number;
+    long longNumber;
+}
 
+void* thread_function(void* arg)
+{
+   struct myStructTemplate *my_struct = (struct myStructTemplate*) arg;
+   my_struct->number = 11;
+   my_struct->longNumber = 11111111199;
+    
+   pthread_extit(0);
+}
+
+int main(int argc, char **argsv)
+{
+    struct myStructTemplate myStruct[2]; 
+    
+    //Define pThreads 
+    pthread_t thread_1 thread_2;
+    
+    //Create threads and share pointer
+	pthread_create(&thread_1, NULL, thread_function, &myStruct[0]);
+    pthread_create(&thread_2, NULL, thread_function, &myStruct[0]);
+	
+    // Join/Wait on threads
+    pthread_join(thread_1, NULL);
+    pthread_join(thread_2, NULL);
+    
+    pintf("Number_1: %d, %ld", myStruct[0].number, myStruct[0].longNumber);
+    pintf("Number_2: %d, %ld", myStruct[1].number, myStruct[1].longNumber);
+    
+    return 0;   
+}
+```
 
 
 
 ## 4. pThread -  Synchronization
 
 If you run multiple thread and they share a common value there will be some inexplicable behavior.
-To bypass this issue you can use `mutexes`
+May be known as `race conditions`.
+To bypass this issue you can use `mutexes`.
 
 ## 4.1. pThread - Mutex
 
@@ -170,12 +209,12 @@ To bypass this issue you can use `mutexes`
 int global_var = 0;
 pthread_mutex_t mutex;
 
-void* thread_function(void arg)
+void* thread_function(void* arg)
 {
    pthread_mutex_lock(&mutex);
    global_var++;
    pthread_mutex_unlock(%mutex);
-   return 0;
+   pthread_extit(0);
 }
 
 int main(int argc, char **argsv)
@@ -183,12 +222,14 @@ int main(int argc, char **argsv)
     //Define pThreads 
     pthread_t thread_1 thread_2;
     
-    //Init Mutex
+    //Init mutex
     pthread_mutex_init(&mutex, NULL);
     
+    //Create threads
 	pthread_create(&thread_1, NULL, thread_function, NULL);
     pthread_create(&thread_2, NULL, thread_function, NULL);
 	
+    // Join/Wait on threads
     pthread_join(thread_1, NULL);
     pthread_join(thread_2, NULL);
     
@@ -207,10 +248,10 @@ int main(int argc, char **argsv)
 ```c
 #include <pthread.h>
 
-void* thread_function(void arg)
+void* thread_function(void* arg)
 {
     //Do some thread work here...
-    return 0;
+    pthread_extit(0);
 }
 
 int main(int argc, char **argsv)
