@@ -7,3 +7,5 @@ Examples/ip_Scanner/main
 *.dSYM
 Examples/Sleep_example/main
 pThread_Samples/pthread_Ex1/main
+pThread_Samples/pthread_Ex1_SingleThread/main
+pThread_Samples/pthread_Ex2_MultipleThreads/main

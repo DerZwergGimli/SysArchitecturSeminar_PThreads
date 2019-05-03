@@ -73,7 +73,7 @@ int main(int argc, char **argsv)
 void* thread_function(void* arg)
 {
     //Do some thread work here...
-    pthread_extit(0);
+    pthread_exit(0);
 }
 
 int main(int argc, char **argsv)
@@ -87,17 +87,17 @@ int main(int argc, char **argsv)
     pthread_attr_t attr;
     pthread_attr_init(&attr);
     
-    for(int i = 0; i < 100, i++)
+    for(int i = 0; i < 100; i++)
     {
         //We will share the value i to the thread_function
-        pthread_create(&thread_id[i], &attr, thread_function, &i);
+        pthread_create(&thread_ids[i], &attr, thread_function, &i);
     }
     
 	
     // Wait until ALL thread are done
     for (int i = 0; i < 100; i++)
     {
-    	pthread_join(thread_id[i], NULL);    
+    	pthread_join(thread_ids[i], NULL);    
     }
     
     
