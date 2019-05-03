@@ -8,7 +8,14 @@ or clone the repository to your Computer
  git clone https://github.com/DerZwergGimli/SysArchitecturSeminar_PThreads.git
 ```
 
+## Documentation
+
+The documentation can be found [here](documentation.md)
+
+
+
 ## Developement Environement
+
 Visual Studio Code, with C/C++ Extension.
 
 ## Compiler + Debugger
