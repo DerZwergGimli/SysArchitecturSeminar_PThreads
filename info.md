@@ -202,4 +202,6 @@ Get a full zipped version of the HTML pages for grepping:  [Where is the list of
 
 [Multithreaded Programming (POSIX pthreads Tutorial)](https://randu.org/tutorials/threads/ )
 
-![process](/home/yannick/Documents/MegaDownload/HTWG/SS2019/System_Architecture/Seminar_POSIX/process.png)
+![process](process.png)
+
+[Threading more...](https://computing.llnl.gov/tutorials/pthreads/#ConditionVariables)
