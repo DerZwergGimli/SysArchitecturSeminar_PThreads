@@ -43,7 +43,7 @@ int main(int argc, char **argsv)
             //Now cancel Thread
             pthread_cancel(thread_ids[i]);
         }
-        i++;
+        
     }
     
     

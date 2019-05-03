@@ -1,10 +1,18 @@
 #include <pthread.h>
+#include <stdio.h>
 
 void* thread_function(void* arg)
 {
-    for (int i = 0; i < 100000; i++)
+    for (int i = 0; i < 10000; i++)
     {
-        sleep(1);
+        int sum;
+        printf("Hello from single Thread \n");
+        for (int j = 0; j < 100000000; j++)
+        {  
+            sum += j;
+        }
+        
+        
     }
     
     //Do some thread work here...

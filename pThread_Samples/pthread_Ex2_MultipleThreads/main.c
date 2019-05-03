@@ -2,10 +2,16 @@
 
 void* thread_function(void* arg)
 {
-    //Do some thread work here...
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < 10000; i++)
     {
-        sleep(1);
+        int sum;
+        printf("Hello from multiple Thread \n");
+        for (int j = 0; j < 100000000; j++)
+        {  
+            sum += j;
+        }
+        
+        
     }
     
     pthread_exit(NULL);
@@ -13,7 +19,7 @@ void* thread_function(void* arg)
 
 int main(int argc, char **argsv)
 {
-    int numberOfThreads = 100;
+    int numberOfThreads = 5;
     
     //Define a Single pThread ID
     pthread_t thread_ids[numberOfThreads];
@@ -22,7 +28,7 @@ int main(int argc, char **argsv)
     pthread_attr_t attr;
     pthread_attr_init(&attr);
     
-    for(int i = 0; i < 100; i++)
+    for(int i = 0; i < numberOfThreads; i++)
     {
         //We will share the value i to the thread_function
         pthread_create(&thread_ids[i], &attr, thread_function, &i);
@@ -36,7 +42,7 @@ int main(int argc, char **argsv)
     
 	
     // Wait until ALL thread are done
-    for (int i = 0; i < 100; i++)
+    for (int i = 0; i < numberOfThreads; i++)
     {
     	pthread_join(thread_ids[i], NULL);    
     }
