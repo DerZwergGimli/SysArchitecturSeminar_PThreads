@@ -2,6 +2,11 @@
 
 void* thread_function(void* arg)
 {
+    for (int i = 0; i < 100000; i++)
+    {
+        sleep(1);
+    }
+    
     //Do some thread work here...
     pthread_exit(0);
 }
@@ -16,7 +21,9 @@ int main(int argc, char **argsv)
     pthread_attr_init(&attr);
     
     pthread_create(&thread_id, &attr, thread_function, NULL);
-    //pthread_create(&tid, NULL, thread_function, &i);
+
+    pthread_setname_np(thread_id,  "Thread_1");
+
     
     // Wait until thread is done
     pthread_join(thread_id, NULL);
