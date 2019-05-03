@@ -40,7 +40,7 @@ This will launch a new thread to do some work on another CPU.
 void* thread_function(void* arg)
 {
     //Do some thread work here...
-    pthread_extit(0);
+    pthread_exit(0);
 }
 
 int main(int argc, char **argsv)
