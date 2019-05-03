@@ -124,7 +124,7 @@ int pthread_kill(pthread_t thread, int sig);
 void* thread_function(void* arg)
 {
     //Do some thread work here...
-    pthread_extit(0);
+    pthread_exit(0);
 }
 
 int main(int argc, char **argsv)

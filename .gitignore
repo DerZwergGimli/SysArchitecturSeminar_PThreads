@@ -9,3 +9,4 @@ Examples/Sleep_example/main
 pThread_Samples/pthread_Ex1/main
 pThread_Samples/pthread_Ex1_SingleThread/main
 pThread_Samples/pthread_Ex2_MultipleThreads/main
+pThread_Samples/pthread_Ex3_Destroy/main
