@@ -9,7 +9,7 @@ void* thread_function(void* arg)
         sleep(1);
     }
 
-    pthread_exit(0);
+    pthread_exit(NULL);
 }
 
 int main(int argc, char **argsv)
@@ -54,5 +54,5 @@ int main(int argc, char **argsv)
     	pthread_join(thread_ids[i], NULL);    
     }
     
-    return 0;   
+    pthread_exit(NULL);
 }

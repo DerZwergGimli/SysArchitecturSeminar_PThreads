@@ -8,7 +8,7 @@ void* thread_function(void* arg)
     }
     
     //Do some thread work here...
-    pthread_exit(0);
+    pthread_exit(NULL);
 }
 
 int main(int argc, char **argsv)
@@ -29,5 +29,5 @@ int main(int argc, char **argsv)
     pthread_join(thread_id, NULL);
     
     
-    return 0;   
+    pthread_exit(NULL);
 }
