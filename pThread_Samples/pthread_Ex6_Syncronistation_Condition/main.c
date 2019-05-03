@@ -57,7 +57,7 @@
      pthread_cond_wait(&count_threshold_cv, &count_mutex);
      printf("watch_count(): thread %ld Condition signal received.\n", my_id);
      }
-     count += 125;
+     count += 10000;
      printf("watch_count(): thread %ld count now = %d.\n", my_id, count);
    pthread_mutex_unlock(&count_mutex);
    pthread_exit(NULL);
@@ -78,11 +78,11 @@
    pthread_attr_init(&attr);
    pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
    pthread_create(&threads[0], &attr, watch_count, (void *)t1);
+   pthread_setname_np(threads[0], "Thread_Watcher");
    pthread_create(&threads[1], &attr, inc_count, (void *)t2);
    pthread_create(&threads[2], &attr, inc_count, (void *)t3);
-   
-   /* Optional naming of the threads */
-   pthread_setname_np(threads[0], "Thread_Watcher");
+
+   /* Optional naming of the threads */  
    pthread_setname_np(threads[1], "Thread_Counter1");
    pthread_setname_np(threads[2], "Thread_Counter2");
 
