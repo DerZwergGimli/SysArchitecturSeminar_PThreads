@@ -1,6 +1,7 @@
 #include <pthread.h>
 #include <stdio.h>
 
+
 void* thread_function(void* arg)
 {
     for (int i = 0; i < 10000; i++)

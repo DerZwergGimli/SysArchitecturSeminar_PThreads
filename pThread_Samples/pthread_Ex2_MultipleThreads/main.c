@@ -19,7 +19,7 @@ void* thread_function(void* arg)
 
 int main(int argc, char **argsv)
 {
-    int numberOfThreads = 5;
+    int numberOfThreads = 5;    
     
     //Define a Single pThread ID
     pthread_t thread_ids[numberOfThreads];
