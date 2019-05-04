@@ -353,7 +353,7 @@ A List of all Shell Utilities can be found [here](https://pubs.opengroup.org/onl
 
 
 
-## c) Topics of Examples 
+## c) pThread Examples 
 
 What we will need here:
 
