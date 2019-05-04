@@ -1,8 +1,7 @@
 .vscode/*
 
-Examples/Thread_example/main
-Examples/Sample_pThread/main
-Examples/ip_Scanner/main
+Examples/
+
 
 *.dSYM
 Examples/Sleep_example/main
