@@ -649,4 +649,3 @@ int main(int argc, char **argsv)
 [Multithreaded Programming (POSIX pthreads Tutorial)](https://randu.org/tutorials/threads/ )
 
 [pThreads - Condition Variables](https://computing.llnl.gov/tutorials/pthreads/#ConditionVariables)
-
